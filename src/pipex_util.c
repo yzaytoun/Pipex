@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yzaytoun <yzaytoun@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: yzaytoun <yzaytoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:22:34 by yzaytoun          #+#    #+#             */
-/*   Updated: 2023/02/24 19:23:09 by yzaytoun         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:59:34 by yzaytoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_find_path(char **env)
 	char	*dest;
 
 	dest = NULL;
+	if (!env || *env == NULL)
+		return (NULL);
 	while (*env)
 	{
 		if (ft_strncmp("PATH", *env, 4) == 0)
@@ -95,6 +97,8 @@ void	ft_savepath(t_man *man, char **env)
 
 	man->i = 0;
 	full_env = ft_find_path(env);
+	if (full_env == NULL)
+		ft_error("No enviroment variables");
 	man->env.string = ft_split(full_env, ':');
 	man->env.count = ft_count_char(full_env, ':') + 1;
 	while (man->i < man->env.count && man->env.string[man->i] != NULL)

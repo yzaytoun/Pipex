@@ -75,9 +75,9 @@ $(NAME): $(LIBFT) $(PRINTF) $(PIP_OBJ) $(OBJDIR)
 	@echo "$(YELLOW)Compiling" $@
 	@$(AR) $(ARFLAGS) $@ $(PIP_OBJ)
 	@echo "$(GREEN)Done!!"
-	@$(CC) $(NAME) $(LIBFT) $(PRINTF) main.c -o pipex
+	@$(CC) $(NAME) $(LIBFT) $(PRINTF) main.c -o
 	@chmod +x pipex
-	@echo "$(YELLOW)************Pipex Mandatory ready****************\n"
+	@echo "$(YELLOW)************Pipex Mandatory ready************,****\n"
 
 $(PRINTF) $(LIBFT) &:
 	@echo "$(YELLOW)Making Libft"
